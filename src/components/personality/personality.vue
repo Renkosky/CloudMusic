@@ -1,13 +1,28 @@
 <template>
-  <div class="">
-    个性推荐
-  </div>
-
+  <slider :slides="slidedata"></slider>
 </template>
 
 <script>
+import slider from '../slider/slider'
+
 export default {
-  name: 'music-list'
+  name: 'personality',
+  components: {
+    slider
+  },
+  created: function () {
+    // GET /someUrl
+    this.$http.get('http://localhost:3000/banner').then(response => {
+      this.slidedata = response.body.banners
+    }, response => {
+      console.log('Error')
+    })
+  },
+  data() {
+    return {
+      slidedata: []
+    }
+  }
 }
 </script>
 

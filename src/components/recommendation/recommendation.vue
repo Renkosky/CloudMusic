@@ -14,7 +14,7 @@
         <span class="tab-link">排行榜</span>
       </router-link>
     </div>
-    <router-view></router-view>
+    <router-view></router-view>  
   </div>
 </template>
 
