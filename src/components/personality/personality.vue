@@ -1,14 +1,18 @@
-<template>
-  <slider :slides="slidedata"></slider>
+<template> 
+  <div>  
+    <slider :slides="slidedata"></slider>
+    <fmmusictab></fmmusictab>
+  </div>
 </template>
 
 <script>
 import slider from '../slider/slider'
-
+import fmmusictab from '../fm-music-tab'
 export default {
   name: 'personality',
   components: {
-    slider
+    slider,
+    fmmusictab
   },
   created: function () {
     // GET /someUrl
@@ -25,7 +29,6 @@ export default {
   }
 }
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 *{

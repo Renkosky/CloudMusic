@@ -44,7 +44,6 @@ export default {
   text-align: center;
 }
 .router-link-active{
-
   border-bottom: 2px solid rgb(234, 32, 0);
 }
 .router-link-active span{

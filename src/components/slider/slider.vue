@@ -1,20 +1,22 @@
 <template>
-   <div class="slide-show" @mouseover="clearInv" @mouseout="runInv">
-  <div class="slide-img">  
+  <div class="slide-show" @mouseover="clearInv" @mouseout="runInv">
+    <div class="slide-img">  
       <transition name="slide-trans">
         <img v-if="isShow" :src="slides[nowIndex].pic">
       </transition>
       <transition name="slide-trans-old">
         <img v-if="!isShow" :src="slides[nowIndex].pic">
       </transition>
+    </div>
+    <ul class="slide-pages">   
+      <li v-for="(item, index) in slides" @click="goto(index)">
+        <div class="slide-dots-icon" :class="{on: index === nowIndex}"></div>
+      </li>
+    </ul>
+    <div class="slide-title" :style="{ backgroundColor: slides[nowIndex].titleColor }">
+      {{ slides[nowIndex].typeTitle }}
+    </div>
   </div>
-  <ul class="slide-pages">   
-    <li v-for="(item, index) in slides" @click="goto(index)">
-      <div class="slide-dots-icon" :class="{on: index === nowIndex}">
-      </div>
-    </li>
-  </ul>
-</div>
 </template>
 
 <script>
@@ -94,7 +96,7 @@ export default {
 
 .slide-show {
     position: relative;
-    margin: 15px 15px 15px 0;
+    /* margin: 15px 15px 15px 0; */
     min-width: 845px;
     height: 320px;
     overflow: hidden;
@@ -126,7 +128,16 @@ export default {
     cursor: pointer;
     color: #fff;
 }
-
+.slide-title {
+  position: absolute;
+  bottom: 10%;
+  right: 2px;
+  padding: 5px 10px 5px 20px;
+  border-radius: 25px 0px 0px 25px;
+  font-size: 30px; 
+  color: white;
+  opacity: 0.7;
+}
 .slide-dots-icon {
     width: 16px;
     height: 16px;
