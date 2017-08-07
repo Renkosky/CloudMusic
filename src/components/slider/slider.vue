@@ -25,7 +25,9 @@ export default {
   props: {
     slides: {
       type: Array,
-      default: []
+      default: function () {
+        return
+      }
     },
     inv: {
       type: Number,

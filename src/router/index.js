@@ -19,11 +19,6 @@ export default new Router({
       component: Musiclist
     },
     {
-      path: '/recommendation',
-      name: 'recommendation',
-      component: Recommendation
-    },
-    {
       path: '/society',
       name: 'society',
       component: Society
@@ -36,36 +31,15 @@ export default new Router({
         {
           path: '/recommendation/list',
           component: List
-        }
-      ]
-    },
-    {
-      path: '/recommendation',
-      name: 'recommendation',
-      component: Recommendation,
-      children: [
+        },
         {
           path: '/recommendation/radio',
           component: Radio
-        }
-      ]
-    },
-    {
-      path: '/recommendation',
-      name: 'recommendation',
-      component: Recommendation,
-      children: [
+        },
         {
           path: '/recommendation/personality',
           component: Personality
-        }
-      ]
-    },
-    {
-      path: '/recommendation',
-      name: 'recommendation',
-      component: Recommendation,
-      children: [
+        },
         {
           path: '/recommendation/top',
           component: Top

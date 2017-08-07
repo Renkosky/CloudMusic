@@ -22,12 +22,7 @@ export default {
   padding:0px
 }
 a {
+  color: #000000; 
   text-decoration:none
-}
-html body{
-  height:100%
-}
-#app{
-  height:100%
 }
 </style>

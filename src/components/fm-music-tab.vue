@@ -1,17 +1,17 @@
 <template>
   <div class="fmmusic-tab">
-    <div class="tab-item">
-      <i class="icon iconfont">&#xe648;</i>
+    <a href="#" class="tab-item">   
+      <i class="icon iconfont">&#xe648;</i>     
       <p>私人FM</p>
-    </div>
-    <div class="tab-item">
-      <i class="icon iconfont">&#xe63b;</i>
+    </a>
+    <a href="#" class="tab-item">   
+      <i class="icon iconfont">&#xe63b;</i>     
       <p>每日歌曲推荐</p>
-    </div>
-    <div class="tab-item">     
+    </a>
+    <a href="#" class="tab-item">   
       <i class="icon iconfont">&#xe600;</i>     
       <p>云音乐热歌榜</p>
-    </div>
+    </a> 
   </div>
 </template>
 <script>
@@ -46,7 +46,7 @@ export default {
 
 .tab-item{
   flex: 1;
-  padding-top: 40px;    
+  margin: 40px 30px 10px 10px;    
   text-align: center;  
 }
 .tab-item p{
