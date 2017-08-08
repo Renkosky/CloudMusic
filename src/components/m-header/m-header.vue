@@ -7,7 +7,7 @@
           <router-link  to='/music-list'>
             <i class="icon iconfont">&#xe680;</i>
           </router-link>
-            <router-link to='/recommendation'>
+            <router-link to='/recommendation' exact>
             <i class="icon iconfont">&#xe601;</i>
           </router-link>
           <router-link  to='/society'>

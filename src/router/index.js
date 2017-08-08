@@ -13,6 +13,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    { path: '/', redirect: '/recommendation/personality' },
     {
       path: '/music-list',
       name: 'music-list',
