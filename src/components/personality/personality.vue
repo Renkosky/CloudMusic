@@ -13,7 +13,9 @@
         主播电台   
       </router-link>
     </personalized>
-    <router-view></router-view> 
+    <transition name="slide">
+     <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -62,7 +64,7 @@ export default {
   methods: {
     selectPlayList(playList) {
       this.$router.push({
-        path: `personality/playList/${playList.id}`
+        path: `/playList/${playList.id}`
       })
     }
   }
@@ -74,5 +76,20 @@ export default {
   margin: 0;
   padding: 0;
 }
+
+ .slide-enter-active {
+  transition: all 0.3s
+}
+
+.slide-leave-active {
+  transition: all 0.3s
+}
+
+.slide-enter, 
+.slide-leave-to
+ {
+  transform: translateY(100%)
+}
+ 
 
 </style>
