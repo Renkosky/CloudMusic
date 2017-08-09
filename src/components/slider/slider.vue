@@ -84,7 +84,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .slide-trans-enter-active {
-    transition: all .5s;
+    transition: all 1s;
 }
 
 .slide-trans-enter {
@@ -92,7 +92,7 @@ export default {
 }
 
 .slide-trans-old-leave-active {
-    transition: all .5s;
+    transition: all 1s;
     transform: translateX(-900px);
 }
 

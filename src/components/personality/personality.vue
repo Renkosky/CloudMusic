@@ -2,14 +2,18 @@
   <div>  
     <slider :slides="slidedata"></slider>
     <fmmusictab></fmmusictab>
-    <personalized :personalized="personnalizeddata">      
-      <router-link to="/recommendation/personality">
+    <personalized @select="selectPlayList" :personalized="personnalizeddata">      
+      <router-link to="/recommendation/list">
         推荐歌曲
       </router-link>    
     </personalized>
     <personalized :personalized="privatecontent">独家放送</personalized>
-  <personalized :personalized="djprogram">主播电台</personalized>
-
+    <personalized :personalized="djprogram">
+      <router-link to="/recommendation/radio">
+        主播电台   
+      </router-link>
+    </personalized>
+    <router-view></router-view> 
   </div>
 </template>
 
@@ -54,6 +58,13 @@ export default {
       privatecontent: [],
       djprogram: []
     }
+  },
+  methods: {
+    selectPlayList(playList) {
+      this.$router.push({
+        path: `personality/playList/${playList.id}`
+      })
+    }
   }
 }
 </script>
@@ -63,4 +74,5 @@ export default {
   margin: 0;
   padding: 0;
 }
+
 </style>

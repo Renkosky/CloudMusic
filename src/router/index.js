@@ -8,6 +8,7 @@ import List from 'components/list/list'
 import Radio from 'components/radio/radio'
 import Personality from 'components/personality/personality'
 import Top from 'components/top/top'
+import playList from 'components/playList/playList'
 
 Vue.use(Router)
 
@@ -39,7 +40,13 @@ export default new Router({
         },
         {
           path: '/recommendation/personality',
-          component: Personality
+          component: Personality,
+          children: [
+            {
+              path: '/playList/:id',
+              component: playList
+            }
+          ]
         },
         {
           path: '/recommendation/top',

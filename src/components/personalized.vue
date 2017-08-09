@@ -4,12 +4,12 @@
       <slot></slot>
       <span>></span>
     </div>
-    <a href="#" class="personalized-item" v-for="(item, index) in personalized">
+    <div @click="selectItem(personalized[index])" class="personalized-item" v-for="(item, index) in personalized">
       <img :src=" personalized[index].picUrl" alt="#">
       <div class="icon iconfont count">&#xe604;{{ personalized[index].playCount }}
       </div>
       <p>{{ personalized[index].name }}</p>
-    </a>
+    </div>
   </div>
 </template>
 <script>
@@ -21,6 +21,11 @@ export default {
       default: function () {
         return
       }
+    }
+  },
+  methods: {
+    selectItem(item) {
+      this.$emit('select', item)
     }
   }
 }

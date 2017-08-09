@@ -14,7 +14,9 @@
         <span class="tab-link">排行榜</span>
       </router-link>
     </div>
-    <router-view></router-view>  
+    <transition name="slide-rec">
+    <router-view></router-view>
+    </transition>  
   </div>
 </template>
 
@@ -49,4 +51,22 @@ export default {
 .router-link-active span{
     color: rgb(234, 32, 0);
 }
+
+/* .slide-rec-enter-active {
+  transition: all 0.3s
+}
+
+.slide-rec-leave-active {
+  transition: all 0.3s
+}
+
+.slide-rec-enter {
+  transform: translateX(100%)
+}
+
+.slide-rec-leave-to{
+  transition: translateX(-100%)
+} */
+
+
 </style>

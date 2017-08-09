@@ -33,7 +33,7 @@ export default {
   height: 60px;
   width: 100%;
   padding: 60px 30px 10px 30px;
-  background-color: rgb(234, 32, 0)
+  background-color: rgb(234, 32, 0) 
 }
 
 .header div{
