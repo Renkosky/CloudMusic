@@ -23,6 +23,8 @@
 import slider from '../slider/slider'
 import fmmusictab from '../fm-music-tab'
 import personalized from '../personalized'
+import {mapMutations} from 'vuex'
+
 export default {
   name: 'personality',
   components: {
@@ -66,7 +68,11 @@ export default {
       this.$router.push({
         path: `/playList/${playList.id}`
       })
-    }
+      this.setPlayList(playList)
+    },
+    ...mapMutations({
+      setPlayList: 'SET_PLAYLIST'
+    })
   }
 }
 </script>
@@ -78,11 +84,11 @@ export default {
 }
 
  .slide-enter-active {
-  transition: all 0.3s
+  transition: all 0.2s
 }
 
 .slide-leave-active {
-  transition: all 0.3s
+  transition: all 0.2s
 }
 
 .slide-enter, 

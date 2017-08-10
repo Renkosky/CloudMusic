@@ -1,12 +1,22 @@
 <template>
     <div class="playList">
-        misc-list
+      <div class="">
+
+      </div>
     </div>
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
-  name: 'play-list'
+  name: 'playlist',
+  computed: {
+    ...mapGetters([
+      'playList'
+    ])
+  }
+
 }
 </script>
 
@@ -23,6 +33,6 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: wheat;
+  background-color: white;
 }
 </style>
