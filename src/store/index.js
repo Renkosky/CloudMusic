@@ -10,7 +10,7 @@ Vue.use(Vuex)
 
 const debug = process.env.NODE_ENV !== 'production'
 
-const store = new Vuex.Store({
+export default new Vuex.Store({
   actions,
   getters,
   state,
@@ -18,4 +18,4 @@ const store = new Vuex.Store({
   strict: debug,
   plugins: debug ? [createLogger()] : []
 })
-store.commit('SET_PLAYLIST')
+// store.commit('SET_PLAYLIST')

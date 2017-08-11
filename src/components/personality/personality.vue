@@ -23,7 +23,8 @@
 import slider from '../slider/slider'
 import fmmusictab from '../fm-music-tab'
 import personalized from '../personalized'
-import {mapMutations} from 'vuex'
+// import {mapMutations} from 'vuex'
+import api from '../../api/api.js'
 
 export default {
   name: 'personality',
@@ -34,26 +35,49 @@ export default {
   },
   created: function () {
     // GET /someUrl
-    this.$http.get('http://localhost:3000/banner').then(response => {
+    api.getBanner().then(response => {
       this.slidedata = response.data.banners
     }, response => {
       console.log('Error')
     })
-    this.$http.get('http://localhost:3000/personalized').then(response => {
+    api.getPersonalized().then(response => {
       this.personnalizeddata = response.data.result
+      console.log(this.personnalizeddata)
     }, response => {
       console.log('Error')
     })
-    this.$http.get('http://localhost:3000/personalized/privatecontent').then(response => {
+    api.getPrivateContent().then(response => {
       this.privatecontent = response.data.result
     }, response => {
       console.log('Error')
     })
-    this.$http.get('http://localhost:3000/personalized/djprogram').then(response => {
+
+    api.getDjprogram().then(response => {
       this.djprogram = response.data.result
     }, response => {
       console.log('Error')
     })
+    // this.$http.get('http://localhost:3000/banner').then(response => {
+    //   this.slidedata = response.data.banners
+    // }, response => {
+    //   console.log('Error')
+    // })
+    // api.getprivatecontent().then()
+    // this.$http.get('http://localhost:3000/personalized').then(response => {
+    //   this.personnalizeddata = response.data.result
+    // }, response => {
+    //   console.log('Error')
+    // })
+    // this.$http.get('http://localhost:3000/personalized/privatecontent').then(response => {
+    //   this.privatecontent = response.data.result
+    // }, response => {
+    //   console.log('Error')
+    // })
+    // this.$http.get('http://localhost:3000/personalized/djprogram').then(response => {
+    //   this.djprogram = response.data.result
+    // }, response => {
+    //   console.log('Error')
+    // })
   },
   data() {
     return {
@@ -68,11 +92,11 @@ export default {
       this.$router.push({
         path: `/playList/${playList.id}`
       })
-      this.setPlayList(playList)
-    },
-    ...mapMutations({
-      setPlayList: 'SET_PLAYLIST'
-    })
+      // this.setPlayList(playList)
+    }
+    // ...mapMutations({
+    //   setPlayList: 'SET_PLAYLIST'
+    // })
   }
 }
 </script>
