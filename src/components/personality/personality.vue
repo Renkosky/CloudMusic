@@ -35,49 +35,27 @@ export default {
   },
   created: function () {
     // GET /someUrl
-    api.getBanner().then(response => {
+    api.getApidata('banner').then(response => {
       this.slidedata = response.data.banners
     }, response => {
       console.log('Error')
     })
-    api.getPersonalized().then(response => {
+    api.getApidata('personalized').then(response => {
       this.personnalizeddata = response.data.result
-      console.log(this.personnalizeddata)
     }, response => {
       console.log('Error')
     })
-    api.getPrivateContent().then(response => {
+    api.getApidata('personalized/privatecontent').then(response => {
       this.privatecontent = response.data.result
     }, response => {
       console.log('Error')
     })
-
-    api.getDjprogram().then(response => {
+    api.getApidata('personalized/djprogram').then(response => {
       this.djprogram = response.data.result
     }, response => {
       console.log('Error')
     })
-    // this.$http.get('http://localhost:3000/banner').then(response => {
-    //   this.slidedata = response.data.banners
-    // }, response => {
-    //   console.log('Error')
-    // })
-    // api.getprivatecontent().then()
-    // this.$http.get('http://localhost:3000/personalized').then(response => {
-    //   this.personnalizeddata = response.data.result
-    // }, response => {
-    //   console.log('Error')
-    // })
-    // this.$http.get('http://localhost:3000/personalized/privatecontent').then(response => {
-    //   this.privatecontent = response.data.result
-    // }, response => {
-    //   console.log('Error')
-    // })
-    // this.$http.get('http://localhost:3000/personalized/djprogram').then(response => {
-    //   this.djprogram = response.data.result
-    // }, response => {
-    //   console.log('Error')
-    // })
+
   },
   data() {
     return {
