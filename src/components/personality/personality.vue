@@ -24,7 +24,7 @@ import slider from '../slider/slider'
 import fmmusictab from '../fm-music-tab'
 import personalized from '../personalized'
 // import {mapMutations} from 'vuex'
-import api from '../../api/api.js'
+import api from '../../api/api'
 
 export default {
   name: 'personality',
@@ -55,7 +55,6 @@ export default {
     }, response => {
       console.log('Error')
     })
-
   },
   data() {
     return {

@@ -1,8 +1,8 @@
 import * as types from './mutation-types'
 
 const mutations = {
-  [types.SET_PLAYLIST](state, playList) {
-    state.playList = playList
+  [types.SET_PLAYLIST](state, payload) {
+    state.playList = payload
   }
 }
 
