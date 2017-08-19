@@ -4,9 +4,9 @@
       <slot></slot>
       <span>></span>
     </div>
-    <div @click="selectItem(personalized[index])" class="personalized-item" v-for="(item, index) in personalized">
+    <div  class="personalized-item" v-for="(item, index) in personalized">
       <img :src=" personalized[index].picUrl" alt="#">
-      <div class="icon iconfont count">&#xe604;{{ personalized[index].playCount }}
+      <div class="icon iconfont count" @click="logCount()">&#xe604;{{ personalized[index].playCount }}
       </div>
       <p>{{ personalized[index].name }}</p>
     </div>
@@ -15,6 +15,16 @@
 <script>
 export default {
   name: 'personalized',
+  computed: {
+    Countchange: function() {
+      for (var index = 0; index < this.personalized.length; index++) {
+        this.personalized[index].playCount = parseInt(this.personalized[index].playCount)
+        if (this.personalized[index].playCount.length >=5) {
+          
+        }
+      }
+    }
+  },
   props: {
     personalized: {
       type: Array,
@@ -26,6 +36,12 @@ export default {
   methods: {
     selectItem(item) {
       this.$emit('select', item)
+    },
+    logCount() {
+      for (var index = 0; index < this.personalized.length; index++) {
+        this.personalized[index].playCount = parseInt(this.personalized[index].playCount)
+        console.log(this.personalized[index].playCount)
+      }
     }
   }
 }
