@@ -33,7 +33,6 @@ export default {
 
   },
   created: function() {
-    console.log(this.$route.params.id)
     api.getPlayListData(this.$route.params.id).then(response => {
       this.playListData = response.data.playlist
       this.url = this.playListData.coverImgUrl
