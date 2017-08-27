@@ -97,8 +97,6 @@ export default {
 .playList-head{
   display: flex; 
   height: 100%;
-  width: 100%; 
-  overflow:hidden;
   filter:blur(150px);
   background-size: cover;
 }
