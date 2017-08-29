@@ -1,13 +1,17 @@
 <template>
   <div class="">
-    主播电台
+    主播电
   </div>
 
 </template>
 
 <script>
+import slider from '../slider/slider'
 export default {
-  name: 'music-list'
+  name: 'music-list',
+  components: {
+    slider
+  }
 }
 </script>
 

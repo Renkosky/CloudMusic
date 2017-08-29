@@ -3,7 +3,7 @@
     <div class="highquality">
       <div class="highqualityBg" :style="'backgroundImage:'+'url('+BgUrl+')'"></div>
         <div class="list-Img">
-          <img :src="highqualityList[0].coverImgUrl" alt="#">
+          <img :src="highQualityList[0].coverImgUrl" alt="#">
         </div>
       <div class="list-title">
         <div class="highquality-list">精品歌单 ></div>
@@ -13,21 +13,21 @@
         <div class="list-copywriter"> <p>{{ copywriter }}</p></div>
       </div>    
     </div>
-    <personalized :personalized="highqualityList"></personalized>
+    <highqualityList :highqualityList="highQualityList"></highqualityList>
   </div>
 </template>
 
 <script>
 import api from '../../api/api'
-import personalized from '../personalized'
+import highqualityList from '../highqualityList/highqualityList'
 export default {
   name: 'music-list',
   components: {
-    personalized
+    highqualityList
   },
   data() {
     return {
-      highqualityList: [],
+      highQualityList: [],
       BgUrl: [],
       name: [],
       copywriter: []
@@ -35,10 +35,10 @@ export default {
   },
   created: function () {
     api.getApidata('top/playlist/highquality').then(response => {
-      this.highqualityList = response.data.playlists
-      this.BgUrl = this.highqualityList[0].coverImgUrl
-      this.name = this.highqualityList[0].name
-      this.copywriter = this.highqualityList[0].copywriter
+      this.highQualityList = response.data.playlists
+      this.BgUrl = this.highQualityList[0].coverImgUrl
+      this.name = this.highQualityList[0].name
+      this.copywriter = this.highQualityList[0].copywriter
     }, response => {
       console.log('Error')
     })
