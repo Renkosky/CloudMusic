@@ -26,19 +26,14 @@
 import api from '../../api/api.js'
 
 export default {
-  // data() {
-  //   playListData:[]
-  // },
-  computed: {
-
-  },
   created: function() {
     api.getPlayListData(this.$route.params.id).then(response => {
-      this.playListData = response.data.playlist
+      this.playListData = response.data.result
       this.url = this.playListData.coverImgUrl
     }, response => {
       console.log('Error')
     })
+    console.log(this.playListData)
   },
   data() {
     return {

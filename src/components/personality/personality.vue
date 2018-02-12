@@ -35,22 +35,22 @@ export default {
   },
   created: function () {
     // GET /someUrl
-    api.getApidata('banner').then(response => {
+    api.getApi('banner').then(response => {
       this.slidedata = response.data.banners
     }, response => {
       console.log('Error')
     })
-    api.getApidata('personalized').then(response => {
+    api.getApi('personalized').then(response => {
       this.personnalizeddata = response.data.result
     }, response => {
       console.log('Error')
     })
-    api.getApidata('personalized/privatecontent').then(response => {
+    api.getApi('personalized/privatecontent').then(response => {
       this.privatecontent = response.data.result
     }, response => {
       console.log('Error')
     })
-    api.getApidata('personalized/djprogram').then(response => {
+    api.getApi('personalized/djprogram').then(response => {
       this.djprogram = response.data.result
     }, response => {
       console.log('Error')

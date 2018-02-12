@@ -4,7 +4,7 @@
       <slot></slot>
       <span>></span>
     </div>
-    <div  class="personalized-item" v-for="(item, index) in personalized" @click="selectItem(item)">
+    <div  class="personalized-item" v-for="(item, index) in personalized" @click="selectItem(item)" :key=index>
       <img :src=" personalized[index].picUrl" alt="#">
       <div class="icon iconfont count" >&#xe604;{{ Countchange[index].playCount }}
       </div>
