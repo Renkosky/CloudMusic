@@ -17,7 +17,7 @@
         <div >
           <i class="icon iconfont">&#xe603;</i>
         </div>
-    </ul>
+   
   </div>
 </template>
 
@@ -31,7 +31,6 @@ export default {
 <style scoped>
 .header{
   height: 60px;
-  width: 100%;
   padding: 60px 30px 10px 30px;
   background-color: rgb(234, 32, 0) 
 }

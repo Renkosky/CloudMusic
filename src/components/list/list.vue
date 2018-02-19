@@ -34,7 +34,7 @@ export default {
     }
   },
   created: function () {
-    api.getApidata('top/playlist/highquality').then(response => {
+    api.getApi('top/playlist/highquality').then(response => {
       this.highQualityList = response.data.playlists
       this.BgUrl = this.highQualityList[0].coverImgUrl
       this.name = this.highQualityList[0].name

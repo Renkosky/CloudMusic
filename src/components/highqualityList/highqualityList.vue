@@ -4,7 +4,7 @@
             <slot></slot>
             <span>></span>
         </div>
-        <div class="highqualityList-item" v-for="(item, index) in highqualityList" @click="selectItem(item)">
+        <div class="highqualityList-item" v-for="(item, index) in highqualityList" @click="selectItem(item)" :key="index">
             <img :src=" highqualityList[index].coverImgUrl" alt="#">
             <div class="icon iconfont count">&#xe604;{{ Countchange[index].playCount }}
             </div>

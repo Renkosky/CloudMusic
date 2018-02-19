@@ -1,10 +1,20 @@
 <template>
-    <div class="playList" >
+<div>
+  <div class="nav-cover">
+    <div class="playList-nav" :style="'backgroundImage:'+'url('+url+')'">
+      <div @click="back()" class="back-btn"> back </div>
+        <div>
+          <div>歌单</div>
+          <div></div>
+        </div>
+    </div>
+  </div>
+    <div class="playList">
       <div class="head-wrap">
         <div class="playList-head" :style="'backgroundImage:'+'url('+url+')'">
           </div>
           <div class="playList-innerhead">
-            <div class="playList-cover"><img :src=" playListData.coverImgUrl "></img></div>
+            <div class="playList-cover"><img :src=" playListData.coverImgUrl "></div>
             <div class="playList-title">{{ playListData.name }}</div>         
           </div>
           <div class="toolbar">
@@ -17,12 +27,25 @@
           </div>
           
       </div>
-      <div class="songlist" v-for="(item,index) in playListData.trackIds">{{ index+1 }}</div>
+      <div class="songlist">
+        <ul>
+          <li  v-for="(item,index) in playListData.tracks" :key="index">
+            <div class="Sl-index">{{ index+1 }}</div>
+            <div class="tracks-info">
+              <div class="tracks-name">{{ playListData.tracks[index].album.name }}</div>
+              <div  class="tracks-artist">
+                {{ playListData.tracks[index].album.artists["0"].name }} - {{ playListData.tracks[index].album.name }}
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
+</div>
 </template>
 
 <script>
-// import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import api from '../../api/api.js'
 
 export default {
@@ -33,12 +56,22 @@ export default {
     }, response => {
       console.log('Error')
     })
-    console.log(this.playListData)
+    console.log(this.playList)
+  },
+  computed: {
+    ...mapGetters([
+      'playList'
+    ])
   },
   data() {
     return {
       playListData: [],
       url: []
+    }
+  },
+  methods: {
+    back() {
+      history.back()
     }
   }
 }
@@ -81,7 +114,25 @@ export default {
   right: 0;
   bottom: 0;
   background-color: white;
-  
+  overflow: scroll; 
+}
+.playList-nav{
+  display: flex;
+  width: 100%;
+  padding: 35px;
+  font-size: 40px;
+  filter: blur(200px);
+}
+.nav-cover{
+  width: 100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  overflow: hidden;
+}
+.back-btn{
+  padding-right: 20px;
 }
 .head-wrap{
   position: relative;
@@ -92,7 +143,7 @@ export default {
 .playList-head{
   display: flex; 
   height: 100%;
-  filter:blur(150px);
+  filter:blur(200px);
   background-size: cover;
 }
 .playList-innerhead{
@@ -103,7 +154,7 @@ export default {
   margin: 15% 5% 5% 5%;
 }
 .playList-cover{
-  flex: 0 1 300px;
+  flex: 0 1 350px;
 }
 
 .playList-cover img{
@@ -115,7 +166,7 @@ export default {
 .playList-title{
   padding-left: 10%;
   flex: 1;
-  font-size: 35px;
+  font-size: 45px;
  
 }
 .toolbar{
@@ -148,5 +199,22 @@ export default {
   font-size: 40px;
   height: 90px;
 }
-
+.songlist ul li{
+  display: flex;
+  padding: 20px;
+}
+.Sl-index{
+  color: grey;
+  padding: 30px;
+}
+.tracks-info{
+  padding: 10px;
+  width: 100%;
+  border-bottom: 1px solid #bcbcbc;
+}
+.tracks-artist{
+  font-size: 30px;
+  padding: 10px 0px;
+  color: grey;
+}
 </style>

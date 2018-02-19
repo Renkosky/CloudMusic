@@ -2,7 +2,9 @@
   <div>  
     <slider :slides="slidedata"></slider>
     <fmmusictab></fmmusictab>
-    <personalized @select="selectPlayList" :personalized="personnalizeddata">      
+    <personalized @select="selectPlayList" 
+                  :personalized="personnalizeddata" 
+                  @click=SetplayList(playList)>      
       <router-link to="/recommendation/list">
         推荐歌曲
       </router-link>    
@@ -23,7 +25,7 @@
 import slider from '../slider/slider'
 import fmmusictab from '../fm-music-tab'
 import personalized from '../personalized'
-// import {mapMutations} from 'vuex'
+import {mapActions} from 'vuex'
 import api from '../../api/api'
 
 export default {
@@ -34,7 +36,6 @@ export default {
     personalized
   },
   created: function () {
-    // GET /someUrl
     api.getApi('banner').then(response => {
       this.slidedata = response.data.banners
     }, response => {
@@ -61,19 +62,24 @@ export default {
       slidedata: [],
       personnalizeddata: [],
       privatecontent: [],
-      djprogram: []
+      djprogram: [],
+      playList: {}
     }
   },
   methods: {
-    selectPlayList(playList) {
+    selectPlayList(item) {
+      this.playList = item
+      console.log(this.playList)
       this.$router.push({
-        path: `/playList/${playList.id}`
+        path: `/playList/${item.id}`
       })
-      // this.setPlayList(playList)
-    }
-    // ...mapMutations({
-    //   setPlayList: 'SET_PLAYLIST'
-    // })
+    },
+    ...mapActions([
+      'SetplayList'
+    ])
+    // SetplayList(playList) {
+    //   this.SetplayList(playList)
+    // }
   }
 }
 </script>

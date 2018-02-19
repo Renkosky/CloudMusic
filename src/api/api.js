@@ -10,11 +10,6 @@ export default {
     cloudMusicApiurl = config.url + url
     return axios.get(cloudMusicApiurl)
   },
-  getApidata: function(url) {
-    let cloudMusicApiurl
-    cloudMusicApiurl = cloudMusicApi + url
-    return Vue.http.get(cloudMusicApiurl)
-  },
   getPlayListData: function (id) {
     let playListurl = cloudMusicApi + playList + id
     return Vue.http.get(playListurl, {})
